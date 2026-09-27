@@ -9,7 +9,6 @@ toward the score.
 | Model | Effort | Date (UTC) | Wall time | Ended by | Highest rung | Claimed polylog? | Score | Run |
 |---|---|---|---|---|---|---|---|---|
 | claude-opus-5-5 | xhigh | 2026-09-27 | 11 min (32 turns, 36k output tokens) | model stopped | bench-48 | No | **0%** | [run](results/claude-opus-5-5-xhigh-20260927T133519Z/) |
-| claude-opus-5-5 | xhigh | 2026-09-27 | 7 min | model stopped | bench-48 | No | **VOID** (sandbox broken, [details](results/claude-opus-5-5-xhigh-20260927T132414Z/VOID.md)) | [run](results/claude-opus-5-5-xhigh-20260927T132414Z/) |
 
 ## Baselines
 
