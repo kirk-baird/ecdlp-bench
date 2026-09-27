@@ -27,6 +27,7 @@ import argparse
 import json
 import os
 import secrets
+import signal
 import subprocess
 import sys
 import time
@@ -54,6 +55,13 @@ def time_limit(bits):
     return BASE_SECONDS * (bits / 32) ** 2
 
 
+def kill_group(proc):
+    try:
+        os.killpg(proc.pid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+
+
 def run_instance(solve_path, curve, timeout):
     p, a, b, n = curve["p"], curve["a"], curve["b"], curve["n"]
     G = (curve["gx"], curve["gy"])
@@ -61,22 +69,31 @@ def run_instance(solve_path, curve, timeout):
     Q = ec.mul(k, G, a, p)
     query = json.dumps({"p": p, "a": a, "b": b, "n": n, "G": G, "Q": Q}) + "\n"
 
+    # Own session, so killing the process group also kills any workers the
+    # submission forked. SIGKILL on the solver alone orphans them, and they
+    # keep burning CPU after the grader has moved on.
     start = time.monotonic()
+    proc = subprocess.Popen(
+        [sys.executable, "-c", RUNNER, solve_path, HERE],
+        stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        text=True, start_new_session=True,
+    )
     try:
-        proc = subprocess.run(
-            [sys.executable, "-c", RUNNER, solve_path, HERE],
-            input=query, capture_output=True, text=True, timeout=timeout,
-        )
+        stdout, stderr = proc.communicate(query, timeout=timeout)
     except subprocess.TimeoutExpired:
+        kill_group(proc)
+        proc.communicate()
         return {"ok": False, "why": "timeout", "seconds": round(time.monotonic() - start, 3)}
+    finally:
+        kill_group(proc)
     seconds = round(time.monotonic() - start, 3)
 
     answer = None
-    for line in proc.stdout.splitlines():
+    for line in stdout.splitlines():
         if line.startswith("ECDLP-BENCH-ANSWER "):
             answer = int(line.split()[1])
     if answer is None:
-        tail = (proc.stderr or proc.stdout).strip().splitlines()[-3:]
+        tail = (stderr or stdout).strip().splitlines()[-3:]
         return {"ok": False, "why": "no answer (exit %d): %s" % (proc.returncode, " | ".join(tail)),
                 "seconds": seconds}
     if ec.mul(answer % n, G, a, p) != Q:
