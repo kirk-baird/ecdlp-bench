@@ -26,6 +26,17 @@ WORK=${ECDLP_BENCH_WORKDIR:-$HOME/ecdlp-bench-runs}/$LABEL
 OUT=$REPO/results/$LABEL
 WALL=${ECDLP_BENCH_WALL:-5h}
 
+# Claude Code's sandbox needs bwrap to create a network namespace. On Ubuntu with
+# kernel.apparmor_restrict_unprivileged_userns=1 that fails for unconfined
+# processes (e.g. anything started as a systemd service), every Bash call dies
+# with "bwrap: loopback: Failed RTM_NEWADDR", and the model sits the exam with
+# no shell. Refuse to start rather than waste a usage window.
+if ! bwrap --unshare-net --ro-bind / / true 2>/dev/null; then
+  echo "sandbox preflight failed: bwrap cannot create a network namespace from this context" >&2
+  echo "(see kernel.apparmor_restrict_unprivileged_userns; launch from a login shell, not a systemd service)" >&2
+  exit 2
+fi
+
 grader_hash() { cat "$REPO/bench/verify.py" "$REPO/bench/ec.py" "$REPO/bench/curves.json" | sha256sum | cut -d' ' -f1; }
 HASH_BEFORE=$(grader_hash)
 

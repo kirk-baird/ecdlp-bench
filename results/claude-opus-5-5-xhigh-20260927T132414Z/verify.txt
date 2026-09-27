@@ -1,0 +1,8 @@
+bench-24    24 bits  limit     5.6s  0.02s 0.02s 0.02s  PASS
+bench-32    32 bits  limit    10.0s  0.10s 0.09s 0.11s  PASS
+bench-40    40 bits  limit    15.6s  1.28s 0.83s 1.17s  PASS
+bench-48    48 bits  limit    22.5s  4.87s 8.39s 1.81s  PASS
+bench-56    56 bits  limit    30.6s  30.66s  FAIL (timeout)
+
+highest rung solved: bench-48 (not part of the score)
+SCORE: 0%
