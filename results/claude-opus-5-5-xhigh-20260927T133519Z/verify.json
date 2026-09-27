@@ -1,0 +1,100 @@
+{
+  "submission": "/home/kirk/ecdlp-bench-runs/claude-opus-5-5-xhigh-20260927T133519Z/submission/solve.py",
+  "rungs": [
+    {
+      "curve": "bench-24",
+      "bits": 24,
+      "limit_seconds": 5.6,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 0.023
+        },
+        {
+          "ok": true,
+          "seconds": 0.029
+        },
+        {
+          "ok": true,
+          "seconds": 0.027
+        }
+      ]
+    },
+    {
+      "curve": "bench-32",
+      "bits": 32,
+      "limit_seconds": 10.0,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 0.088
+        },
+        {
+          "ok": true,
+          "seconds": 0.091
+        },
+        {
+          "ok": true,
+          "seconds": 0.114
+        }
+      ]
+    },
+    {
+      "curve": "bench-40",
+      "bits": 40,
+      "limit_seconds": 15.6,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 2.644
+        },
+        {
+          "ok": true,
+          "seconds": 0.985
+        },
+        {
+          "ok": true,
+          "seconds": 0.425
+        }
+      ]
+    },
+    {
+      "curve": "bench-48",
+      "bits": 48,
+      "limit_seconds": 22.5,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 5.918
+        },
+        {
+          "ok": true,
+          "seconds": 5.911
+        },
+        {
+          "ok": true,
+          "seconds": 12.714
+        }
+      ]
+    },
+    {
+      "curve": "bench-56",
+      "bits": 56,
+      "limit_seconds": 30.6,
+      "ok": false,
+      "trials": [
+        {
+          "ok": false,
+          "why": "timeout",
+          "seconds": 30.659
+        }
+      ]
+    }
+  ],
+  "highest_rung_solved": "bench-48",
+  "score_percent": 0
+}

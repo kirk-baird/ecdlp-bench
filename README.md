@@ -21,6 +21,7 @@ to break down a polylog algorithm into partial results.
 | Humanity (Miller and Koblitz, 1985 to present) | ~41 years, thousands of researchers | — | 0% |
 | `baselines/pollard_rho.py` | O(√n) | bench-48 | 0% |
 | `baselines/vibes.py` | O(1) | none | 0% |
+| Claude Opus 5.5 (xhigh), one shot | 11 of 300 minutes used | bench-48 | 0% |
 
 Model runs, transcripts and submissions are in [LEADERBOARD.md](LEADERBOARD.md)
 and [`results/`](results/).
