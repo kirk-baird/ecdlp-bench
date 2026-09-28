@@ -1,0 +1,3 @@
+I did not find a polylogarithmic ECDLP algorithm. I added a generic solver in [solve.py](/home/kirk/ecdlp-bench-runs/gpt-6-sol-xhigh-20260928T093852Z/submission/solve.py) and documented its correctness, square-root complexity, and limits in [ATTACK.md](/home/kirk/ecdlp-bench-runs/gpt-6-sol-xhigh-20260928T093852Z/submission/ATTACK.md).
+
+The local verifier passed three random instances per curve through 48 bits. The 56-bit rung timed out. This submission is expected to score **0%** on the full ladder.

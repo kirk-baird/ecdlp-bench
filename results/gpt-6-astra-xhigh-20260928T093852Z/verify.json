@@ -1,0 +1,80 @@
+{
+  "submission": "/home/kirk/ecdlp-bench-runs/gpt-6-astra-xhigh-20260928T093852Z/submission/solve.py",
+  "rungs": [
+    {
+      "curve": "bench-24",
+      "bits": 24,
+      "limit_seconds": 5.6,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 0.016
+        },
+        {
+          "ok": true,
+          "seconds": 0.019
+        },
+        {
+          "ok": true,
+          "seconds": 0.019
+        }
+      ]
+    },
+    {
+      "curve": "bench-32",
+      "bits": 32,
+      "limit_seconds": 10.0,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 0.075
+        },
+        {
+          "ok": true,
+          "seconds": 0.104
+        },
+        {
+          "ok": true,
+          "seconds": 0.092
+        }
+      ]
+    },
+    {
+      "curve": "bench-40",
+      "bits": 40,
+      "limit_seconds": 15.6,
+      "ok": true,
+      "trials": [
+        {
+          "ok": true,
+          "seconds": 1.173
+        },
+        {
+          "ok": true,
+          "seconds": 1.255
+        },
+        {
+          "ok": true,
+          "seconds": 1.41
+        }
+      ]
+    },
+    {
+      "curve": "bench-48",
+      "bits": 48,
+      "limit_seconds": 22.5,
+      "ok": false,
+      "trials": [
+        {
+          "ok": false,
+          "why": "timeout",
+          "seconds": 22.524
+        }
+      ]
+    }
+  ],
+  "highest_rung_solved": "bench-40",
+  "score_percent": 0
+}

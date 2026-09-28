@@ -22,6 +22,10 @@ to break down a polylog algorithm into partial results.
 | `baselines/pollard_rho.py` | O(√n) | bench-48 | 0% |
 | `baselines/vibes.py` | O(1) | none | 0% |
 | Claude Opus 5.5 (xhigh), one shot | 11 of 300 minutes used | bench-48 | 0% |
+| Claude Opus 5 (xhigh), one shot | 42 of 300 minutes used | bench-48 | 0% |
+| Claude Fable 5.1 (xhigh), one shot | 17 of 300 minutes used | bench-48 | 0% |
+| GPT-6 Sol (xhigh), one shot | 9 of 300 minutes used | bench-48 | 0% |
+| GPT-6 Astra (xhigh), one shot | 8 of 300 minutes used | bench-40 | 0% |
 
 Model runs, transcripts and submissions are in [LEADERBOARD.md](LEADERBOARD.md)
 and [`results/`](results/).
@@ -63,6 +67,13 @@ python3 bench/verify.py baselines/pollard_rho.py
 
 ```
 ./run.sh claude-opus-5-5 xhigh
+```
+
+OpenAI models run through the codex CLI with the same workspace, prompt, limits
+and grader:
+
+```
+./run-codex.sh gpt-6-sol xhigh
 ```
 
 [`run.sh`](run.sh) creates a fresh workspace outside the repo and starts one

@@ -1,0 +1,1 @@
+2026-09-28T09:47:04.278697Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`/bin/bash -lc 'rm -rf submission/__pycache__ && git restore -- bench/__pycache__/ec.cpython-312.pyc && git status --short'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }

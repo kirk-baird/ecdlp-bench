@@ -1,0 +1,20 @@
+{
+  "model": "gpt-6-sol",
+  "effort": "xhigh",
+  "codex": "codex-cli 0.156.0",
+  "started_utc": 1790588332,
+  "wall_seconds": 528,
+  "exit_code": 0,
+  "ended_by": "model stopped",
+  "error": null,
+  "num_turns": 1,
+  "usage": {
+    "input_tokens": 721244,
+    "cached_input_tokens": 645632,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 16311,
+    "reasoning_output_tokens": 10686
+  },
+  "highest_rung_solved": "bench-48",
+  "score_percent": 0
+}
