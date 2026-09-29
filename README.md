@@ -3,7 +3,7 @@
 **Can AI one-shot the ECDLP?**
 
 ecdlp-bench measures whether a frontier model, given one prompt and one 5-hour
-usage window of a Claude Max plan, can find a polylogarithmic-time algorithm for
+usage window of a Max plan, can find a polylogarithmic-time algorithm for
 the elliptic curve discrete logarithm problem and implement it.
 
 | Outcome | Score |
@@ -11,16 +11,12 @@ the elliptic curve discrete logarithm problem and implement it.
 | Polylog ECDLP algorithm that passes the grader | 100% |
 | Anything else | 0% |
 
-There is no partial credit. We considered it and couldn't find a sensible way
-to break down a polylog algorithm into partial results.
+There is no partial credit, a solution or task failed.
 
 ## Leaderboard
 
 | Entrant | Budget | Highest rung solved (not scored) | Score |
 |---|---|---|---|
-| Humanity (Miller and Koblitz, 1985 to present) | ~41 years, thousands of researchers | — | 0% |
-| `baselines/pollard_rho.py` | O(√n) | bench-48 | 0% |
-| `baselines/vibes.py` | O(1) | none | 0% |
 | Claude Opus 5.5 (xhigh), one shot | 11 of 300 minutes used | bench-48 | 0% |
 | Claude Opus 5 (xhigh), one shot | 42 of 300 minutes used | bench-48 | 0% |
 | Claude Fable 5.1 (xhigh), one shot | 17 of 300 minutes used | bench-48 | 0% |
